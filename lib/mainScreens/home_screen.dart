@@ -7,7 +7,9 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        flexibleSpace: Container(),
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(),
+        ),
         title: const Text(
           "iShop",
           style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
