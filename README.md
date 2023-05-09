@@ -26,4 +26,6 @@ Flutter is an open-source UI software development kit created by Google. It is u
 Cloud Firestore is a cloud-hosted, NoSQL database that your iOS, Android, and web apps can access directly via native SDKs. Query & structure data the way you like. Sync data across devices, on or offline. Powered by Google's storage infrastructure, Cloud Firestore helps scale your business. Build Fast For Any Device. For Mobile or Web Apps. Backed by Google. Build Extraordinary Apps.
 
 
-
+# Section 4: User App - create Firebase project
+# 11. create firebase project and connect users app with firebase
+15min
