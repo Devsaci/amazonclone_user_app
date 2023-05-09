@@ -18,7 +18,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Amazon Clone User_App',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        primarySwatch: Colors.purple,
+        //colorScheme: ColorScheme.fromSeed(seedColor: Colors.orange),
         //useMaterial3: true,
       ),
       home: const HomeScreen(),
