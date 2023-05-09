@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: true,
       title: 'Amazon Clone User_App',
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
