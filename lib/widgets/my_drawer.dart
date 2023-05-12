@@ -11,6 +11,11 @@ class MyDrawer extends StatefulWidget {
 class _MyDrawerState extends State<MyDrawer> {
   @override
   Widget build(BuildContext context) {
-    return Drawer();
+    return Drawer(
+      backgroundColor: Colors.black54,
+      child: ListView(
+        children: [],
+      ),
+    );
   }
 }
