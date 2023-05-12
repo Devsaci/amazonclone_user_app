@@ -56,6 +56,100 @@ class _MyDrawerState extends State<MyDrawer> {
               stops: [0.0, 1.0],
               tileMode: TileMode.clamp,
             )),
+            child:  Column(
+              children: [
+                const Divider(
+                  height:.1,
+                  color: Colors.white,
+                  thickness: 3,
+                ),
+                //home
+                ListTile(
+                  leading: const Icon(Icons.home, color: Colors.black87,),
+                  title: const Text(
+                    "Home",
+                    style: TextStyle(color: Colors.black87),
+                  ),
+                  onTap: () {},
+                ),
+                const Divider(
+                  height: 20,
+                  color: Colors.black87,
+                  thickness: 3,
+                ),
+                //my orders
+                ListTile(
+                  leading: const Icon(Icons.reorder, color: Colors.black87,),
+                  title: const Text(
+                    "My Orders",
+                    style: TextStyle(color: Colors.black87),
+                  ),
+                  onTap: () {},
+                ),
+                const Divider(
+                  height: 20,
+                  color: Colors.black87,
+                  thickness: 3,
+                ),
+                //not yet received orders
+                ListTile(
+                  leading: const Icon(Icons.picture_in_picture_alt_rounded,  color: Colors.black87,),
+                  title: const Text(
+                    "Not Yet Received Orders",
+                    style: TextStyle(color: Colors.black87),
+                  ),
+                  onTap: () {},
+                ),
+                const Divider(
+                  height: 20,
+                  color: Colors.black87,
+                  thickness: 3,
+                ),
+                //history
+                ListTile(
+                  leading: const Icon(Icons.access_time, color: Colors.black87,),
+                  title: const Text(
+                    "History",
+                    style: TextStyle(color: Colors.black87),
+                  ),
+                  onTap: () {},
+                ),
+                const Divider(
+                  height: 20,
+                  color: Colors.black87,
+                  thickness: 3,
+                ),
+                //search
+                ListTile(
+                  leading: const Icon(Icons.search, color: Colors.black87,),
+                  title: const Text(
+                    "Search",
+                    style: TextStyle(color: Colors.black87),
+                  ),
+                  onTap: () {},
+                ),
+                const Divider(
+                  height: 20,
+                  color: Colors.black87,
+                  thickness: 3,
+                ),
+                //logout
+                ListTile(
+                  leading: const Icon(Icons.exit_to_app,color: Colors.black87,),
+                  title: const Text(
+                    "Sign Out",
+                    style: TextStyle(color: Colors.black87),
+                  ),
+                  onTap: () {},
+                ),
+                const Divider(
+                  height: 20,
+                  color: Colors.black87,
+                  thickness: 3,
+                ),
+
+              ],
+            ),
           ),
         ],
       ),
