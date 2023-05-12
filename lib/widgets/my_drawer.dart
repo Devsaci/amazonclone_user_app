@@ -14,7 +14,12 @@ class _MyDrawerState extends State<MyDrawer> {
     return Drawer(
       backgroundColor: Colors.black54,
       child: ListView(
-        children: [],
+        children: [
+          //header
+          Container(),
+          //body
+          Container(),
+        ],
       ),
     );
   }
