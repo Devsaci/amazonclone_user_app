@@ -16,8 +16,9 @@ class _MyDrawerState extends State<MyDrawer> {
       child: ListView(
         children: [
           //header
-          Container(
-            child: const Column(
+          const Padding(
+            padding: EdgeInsets.only(top: 26, bottom: 12),
+            child: Column(
               children: [
                 //user profile image
                 SizedBox(
