@@ -10,10 +10,10 @@ class HomeScreen extends StatelessWidget {
       drawer: const MyDrawer(),
       appBar: AppBar(
         flexibleSpace: Container(
-          decoration: const BoxDecoration(
+          decoration:  BoxDecoration(
               gradient: LinearGradient(colors: [
-              Colors.pinkAccent,
-              Colors.purpleAccent,
+                Colors.amber.shade300,
+                Colors.amber.shade800,
             ],
               begin: FractionalOffset(0.0, 0.0),
               end: FractionalOffset(1.0, 0.0),

@@ -43,7 +43,20 @@ class _MyDrawerState extends State<MyDrawer> {
             ),
           ),
           //body
-          Container(),
+          Container(
+            height: 900,
+            decoration:  BoxDecoration(
+                gradient: LinearGradient(
+              colors: [
+                Colors.amber.shade300,
+                Colors.amber.shade800,
+              ],
+              begin: FractionalOffset(0.0, 0.0),
+              end: FractionalOffset(1.0, 0.0),
+              stops: [0.0, 1.0],
+              tileMode: TileMode.clamp,
+            )),
+          ),
         ],
       ),
     );
