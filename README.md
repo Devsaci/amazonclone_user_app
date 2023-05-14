@@ -44,3 +44,7 @@ Course content
 15:46
 # 5. custom splash screen in flutter
 13:33
+
+# Section 2: User App - Setup New Project with Custum Navigation Drawer & Splash Screen
+# 7. implement flutter tab controller and tab bar view for auth screen
+12min
