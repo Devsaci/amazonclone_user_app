@@ -1,4 +1,6 @@
-import 'package:flutter/cupertino.dart';
+import 'dart:async';
+
+import 'package:amazonclone_user_app/mainScreens/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class MySplashScreen extends StatefulWidget {
@@ -11,7 +13,16 @@ class MySplashScreen extends StatefulWidget {
 class _MySplashScreenState extends State<MySplashScreen> {
   @override
   Widget build(BuildContext context) {
-    splashScreenTimer() {}
+    splashScreenTimer() {
+      Timer(const Duration(seconds: 3), () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const HomeScreen(),
+          ),
+        );
+      });
+    }
 
     return Material(
       child: Container(
