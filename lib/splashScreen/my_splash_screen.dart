@@ -11,19 +11,21 @@ class MySplashScreen extends StatefulWidget {
 }
 
 class _MySplashScreenState extends State<MySplashScreen> {
+
+  // Timer
+  splashScreenTimer() {
+    Timer(const Duration(seconds: 3), () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const HomeScreen(),
+        ),
+      );
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    splashScreenTimer() {
-      Timer(const Duration(seconds: 3), () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const HomeScreen(),
-          ),
-        );
-      });
-    }
-
     return Material(
       child: Container(
         decoration: BoxDecoration(
