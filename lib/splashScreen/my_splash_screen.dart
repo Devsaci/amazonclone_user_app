@@ -11,9 +11,18 @@ class MySplashScreen extends StatefulWidget {
 class _MySplashScreenState extends State<MySplashScreen> {
   @override
   Widget build(BuildContext context) {
+    splashScreenTimer() {}
+
     return Material(
       child: Container(
-        decoration: BoxDecoration(gradient: LinearGradient(colors: [])),
+        decoration: BoxDecoration(
+          gradient: RadialGradient(
+            colors: [
+              Colors.teal.shade300,
+              Colors.teal.shade800,
+            ],
+          ),
+        ),
       ),
     );
   }
