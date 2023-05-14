@@ -11,9 +11,11 @@ class AuthScreen extends StatefulWidget {
 class _AuthScreenState extends State<AuthScreen> {
   @override
   Widget build(BuildContext context) {
-    return const DefaultTabController(
+    return  DefaultTabController(
       length: 2,
-      child: Scaffold(),
+      child: Scaffold(
+        appBar: AppBar(),
+      ),
     );
   }
 }
