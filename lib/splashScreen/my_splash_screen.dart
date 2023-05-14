@@ -11,6 +11,10 @@ class MySplashScreen extends StatefulWidget {
 class _MySplashScreenState extends State<MySplashScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Material();
+    return Material(
+      child: Container(
+        decoration: BoxDecoration(gradient: LinearGradient(colors: [])),
+      ),
+    );
   }
 }
