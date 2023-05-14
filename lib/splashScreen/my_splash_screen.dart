@@ -11,7 +11,6 @@ class MySplashScreen extends StatefulWidget {
 }
 
 class _MySplashScreenState extends State<MySplashScreen> {
-
   // Timer
   splashScreenTimer() {
     Timer(const Duration(seconds: 3), () {
@@ -23,12 +22,12 @@ class _MySplashScreenState extends State<MySplashScreen> {
       );
     });
   }
-@override
-void initState() {
-    // TODO: implement initState
+
+  @override
+  void initState() {
+    splashScreenTimer();
     super.initState();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +38,17 @@ void initState() {
             colors: [
               Colors.teal.shade300,
               Colors.teal.shade800,
+            ],
+          ),
+        ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(50.0),
+                child: Image.asset("images/welcome.png"),
+              )
             ],
           ),
         ),
