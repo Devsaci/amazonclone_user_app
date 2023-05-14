@@ -48,7 +48,17 @@ class _MySplashScreenState extends State<MySplashScreen> {
               Padding(
                 padding: const EdgeInsets.all(50.0),
                 child: Image.asset("images/welcome.png"),
-              )
+              ),
+              const SizedBox(height: 10),
+              const Text(
+                "iShop Users App",
+                style: TextStyle(
+                  fontSize: 20,
+                  letterSpacing: 3,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ],
           ),
         ),
