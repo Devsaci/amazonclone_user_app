@@ -1,3 +1,4 @@
+import 'package:amazonclone_user_app/widgets/custom_text_field.dart';
 import 'package:flutter/cupertino.dart';
 
 class LoginTabPage extends StatefulWidget {
@@ -10,8 +11,11 @@ class LoginTabPage extends StatefulWidget {
 class _LoginTabPageState extends State<LoginTabPage> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder(
-      child: Text(" LoginTabPage()"),
+    return const Column(
+      children: [
+        CustomTextField(),
+        CustomTextField(),
+        ],
     );
   }
 }
