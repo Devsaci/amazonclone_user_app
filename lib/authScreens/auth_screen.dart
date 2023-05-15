@@ -1,5 +1,8 @@
-import 'package:flutter/cupertino.dart';
+
+import 'package:amazonclone_user_app/authScreens/registration_tab_page.dart';
 import 'package:flutter/material.dart';
+
+import 'login_tab_page.dart';
 
 class AuthScreen extends StatefulWidget {
   const AuthScreen({Key? key}) : super(key: key);
@@ -59,7 +62,7 @@ class _AuthScreenState extends State<AuthScreen> {
           ),
         ),
         body: Container(
-          decoration:  BoxDecoration(
+          decoration: BoxDecoration(
               gradient: LinearGradient(
             colors: [
               Colors.lime.shade300,
@@ -70,7 +73,12 @@ class _AuthScreenState extends State<AuthScreen> {
             stops: const [0.0, 1.0],
             tileMode: TileMode.clamp,
           )),
-          child: const TabBarView(children: []),
+          child: const TabBarView(
+            children: [
+              LoginTabPage(),
+              RegistrationTabPage(),
+            ],
+          ),
         ),
       ),
     );
