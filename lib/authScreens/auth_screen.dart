@@ -39,14 +39,17 @@ class _AuthScreenState extends State<AuthScreen> {
           centerTitle: true,
           bottom: const TabBar(
             indicatorColor: Colors.black87,
+            indicatorWeight: 8,
             tabs: [
               Tab(
+                text: "Login",
                 icon: Icon(
                   Icons.lock,
                   color: Colors.white,
                 ),
               ),
               Tab(
+                text: "Registration",
                 icon: Icon(
                   Icons.person,
                   color: Colors.white,
@@ -54,6 +57,19 @@ class _AuthScreenState extends State<AuthScreen> {
               ),
             ],
           ),
+        ),
+        body: Container(
+          decoration:  BoxDecoration(
+              gradient: LinearGradient(
+            colors: [
+              Colors.lime.shade300,
+              Colors.lime.shade700,
+            ],
+            begin: const FractionalOffset(0.0, 0.0),
+            end: const FractionalOffset(1.0, 0.0),
+            stops: const [0.0, 1.0],
+            tileMode: TileMode.clamp,
+          )),
         ),
       ),
     );
