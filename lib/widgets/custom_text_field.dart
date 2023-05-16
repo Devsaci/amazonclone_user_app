@@ -10,6 +10,7 @@ class CustomTextField extends StatefulWidget {
 class _CustomTextFieldState extends State<CustomTextField> {
   TextEditingController? textEditingController;
   IconData? iconData;
+  bool? isObsecre = true;
   @override
   Widget build(BuildContext context) {
     return Container(
