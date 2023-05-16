@@ -20,6 +20,7 @@ class _LoginTabPageState extends State<LoginTabPage> {
             isObsecre: false,
             iconData: Icons.email,
             hintText: "Email",
+            enabled: true,
           ),
           const SizedBox(height: 10),
           CustomTextField(
@@ -27,6 +28,7 @@ class _LoginTabPageState extends State<LoginTabPage> {
             isObsecre: true,
             iconData: Icons.lock,
             hintText: "Password",
+            enabled: true,
           ),
         ],
       ),
