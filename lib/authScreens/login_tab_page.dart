@@ -18,11 +18,13 @@ class _LoginTabPageState extends State<LoginTabPage> {
           CustomTextField(
             textEditingController: emailTextEditingController,
             isObsecre: false,
+            iconData: Icons.email,
           ),
           const SizedBox(height: 10),
           CustomTextField(
             textEditingController: passwordTextEditingController,
             isObsecre: true,
+            iconData: Icons.lock,
           ),
         ],
       ),
