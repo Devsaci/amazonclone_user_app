@@ -9,6 +9,7 @@ class LoginTabPage extends StatefulWidget {
 class _LoginTabPageState extends State<LoginTabPage> {
   TextEditingController emailTextEditingController = TextEditingController();
   TextEditingController passwordTextEditingController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -16,10 +17,12 @@ class _LoginTabPageState extends State<LoginTabPage> {
         children: [
           CustomTextField(
             textEditingController: emailTextEditingController,
+            isObsecre: false,
           ),
           const SizedBox(height: 10),
           CustomTextField(
             textEditingController: passwordTextEditingController,
+            isObsecre: true,
           ),
         ],
       ),
