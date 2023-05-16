@@ -11,6 +11,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   TextEditingController? textEditingController;
   IconData? iconData;
   bool? isObsecre = true;
+  bool? enabled = true;
   @override
   Widget build(BuildContext context) {
     return Container(
