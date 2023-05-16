@@ -1,25 +1,26 @@
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatefulWidget {
-  const CustomTextField({Key? key}) : super(key: key);
+  TextEditingController? textEditingController;
+  IconData? iconData;
+  String? hintText;
+  bool? isObsecre = true;
+  bool? enabled = true;
+
+  CustomTextField({
+    super.key,
+    this.textEditingController,
+    this.iconData,
+    this.hintText,
+    this.isObsecre,
+    this.enabled,
+  });
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
 }
 
 class _CustomTextFieldState extends State<CustomTextField> {
-  TextEditingController? textEditingController;
-  IconData? iconData;
-  bool? isObsecre = true;
-  bool? enabled = true;
-
-  _CustomTextFieldState(
-    this.textEditingController,
-    this.iconData,
-    this.isObsecre,
-    this.enabled,
-  );
-
   @override
   Widget build(BuildContext context) {
     return Container(
