@@ -10,27 +10,34 @@ class _LoginTabPageState extends State<LoginTabPage> {
   TextEditingController emailTextEditingController = TextEditingController();
   TextEditingController passwordTextEditingController = TextEditingController();
 
+  get formKey => null;
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Column(
-        children: [
-          CustomTextField(
-            textEditingController: emailTextEditingController,
-            isObsecre: false,
-            iconData: Icons.email,
-            hintText: "Email",
-            enabled: true,
-          ),
-          const SizedBox(height: 10),
-          CustomTextField(
-            textEditingController: passwordTextEditingController,
-            isObsecre: true,
-            iconData: Icons.lock,
-            hintText: "Password",
-            enabled: true,
-          ),
-        ],
+      child: Form(
+        key: formKey,
+        child: Column(
+          children: [
+            //email
+            CustomTextField(
+              textEditingController: emailTextEditingController,
+              isObsecre: false,
+              iconData: Icons.email,
+              hintText: "Email",
+              enabled: true,
+            ),
+            const SizedBox(height: 10),
+            //pass
+            CustomTextField(
+              textEditingController: passwordTextEditingController,
+              isObsecre: true,
+              iconData: Icons.lock,
+              hintText: "Password",
+              enabled: true,
+            ),
+          ],
+        ),
       ),
     );
   }
