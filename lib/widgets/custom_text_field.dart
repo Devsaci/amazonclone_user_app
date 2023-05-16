@@ -32,6 +32,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       child: TextFormField(
         enabled: widget.enabled,
         controller: widget.textEditingController,
+        obscureText: widget.isObsecre!,
       ),
     );
   }
