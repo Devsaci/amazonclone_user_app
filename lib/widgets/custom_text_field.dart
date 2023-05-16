@@ -12,6 +12,14 @@ class _CustomTextFieldState extends State<CustomTextField> {
   IconData? iconData;
   bool? isObsecre = true;
   bool? enabled = true;
+
+  _CustomTextFieldState(
+    this.textEditingController,
+    this.iconData,
+    this.isObsecre,
+    this.enabled,
+  );
+
   @override
   Widget build(BuildContext context) {
     return Container(
