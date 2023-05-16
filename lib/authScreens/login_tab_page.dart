@@ -1,22 +1,26 @@
 import 'package:amazonclone_user_app/widgets/custom_text_field.dart';
-import 'package:flutter/cupertino.dart';
+
+import 'package:flutter/material.dart';
 
 class LoginTabPage extends StatefulWidget {
-  const LoginTabPage({Key? key}) : super(key: key);
-
-  @override
   State<LoginTabPage> createState() => _LoginTabPageState();
 }
 
 class _LoginTabPageState extends State<LoginTabPage> {
+  TextEditingController emailTextEditingController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      children: [
-        CustomTextField(),
-        SizedBox(height: 10),
-        CustomTextField(),
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          CustomTextField(
+            textEditingController: emailTextEditingController,
+          ),
+          const SizedBox(height: 10),
+          CustomTextField(),
         ],
+      ),
     );
   }
 }
