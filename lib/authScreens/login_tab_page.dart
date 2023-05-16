@@ -10,7 +10,7 @@ class _LoginTabPageState extends State<LoginTabPage> {
   TextEditingController emailTextEditingController = TextEditingController();
   TextEditingController passwordTextEditingController = TextEditingController();
 
-  get formKey => null;
+  GlobalKey<FormState>  formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
