@@ -76,6 +76,7 @@ class _AuthScreenState extends State<AuthScreen> {
           child: const TabBarView(
             children: [
               LoginTabPage(),
+
               RegistrationTabPage(),
             ],
           ),

@@ -8,12 +8,16 @@ class CustomTextField extends StatefulWidget {
 }
 
 class _CustomTextFieldState extends State<CustomTextField> {
+  TextEditingController? textEditingController;
+
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.all(Radius.circular(18))),
+      padding: const EdgeInsets.all(8.0),
+      margin: const EdgeInsets.all(18.0),
       child: TextFormField(),
     );
   }

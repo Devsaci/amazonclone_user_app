@@ -14,6 +14,7 @@ class _LoginTabPageState extends State<LoginTabPage> {
     return const Column(
       children: [
         CustomTextField(),
+        SizedBox(height: 10),
         CustomTextField(),
         ],
     );
