@@ -10,8 +10,12 @@ class RegistrationTabPage extends StatefulWidget {
 class _RegistrationTabPageState extends State<RegistrationTabPage> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder(
-      child: Text("RegistrationTabPage()"),
+    return SingleChildScrollView(
+      child: Container(
+        child: Column(
+          children: [],
+        ),
+      ),
     );
   }
 }
