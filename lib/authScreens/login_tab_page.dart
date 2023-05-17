@@ -17,7 +17,14 @@ class _LoginTabPageState extends State<LoginTabPage> {
     return SingleChildScrollView(
       child: Column(
         children: [
-          Image.asset("name"),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Image.asset(
+              "images/login.png",
+              height: MediaQuery.of(context).size.height * 0.3,
+              opacity: const AlwaysStoppedAnimation(0.8),
+            ),
+          ),
           Form(
             key: formKey,
             child: Column(
