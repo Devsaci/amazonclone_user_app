@@ -1,6 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import '../widgets/custom_text_field.dart';
+
 class RegistrationTabPage extends StatefulWidget {
   const RegistrationTabPage({Key? key}) : super(key: key);
 
@@ -10,6 +12,8 @@ class RegistrationTabPage extends StatefulWidget {
 
 class _RegistrationTabPageState extends State<RegistrationTabPage> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
+  get nameTextEditingController => null;
 
   @override
   Widget build(BuildContext context) {
@@ -37,8 +41,11 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
           //inputs form fields
           Form(
             key: formKey,
-            child: const Column(
-              children: [],
+            child: Column(
+              children: [
+                //name
+                CustomTextField(textEditingController: nameTextEditingController),
+              ],
             ),
           ),
         ],
