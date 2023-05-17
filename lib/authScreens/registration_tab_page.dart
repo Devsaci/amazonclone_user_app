@@ -49,6 +49,7 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
                   isObsecre: false,
                   iconData: Icons.person,
                   hintText: "Name",
+                  enabled: true,
                 ),
               ],
             ),
