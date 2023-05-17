@@ -13,7 +13,7 @@ class RegistrationTabPage extends StatefulWidget {
 class _RegistrationTabPageState extends State<RegistrationTabPage> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  get nameTextEditingController => null;
+  TextEditingController nameTextEditingController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
