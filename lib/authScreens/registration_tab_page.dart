@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class RegistrationTabPage extends StatefulWidget {
@@ -17,13 +18,20 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
           children: [
             const SizedBox(height: 15),
             //get-capture image
-            CircleAvatar(
-              backgroundColor: Colors.white,
-              radius: MediaQuery.of(context).size.width*0.2,
-              child: Icon(
-                Icons.add_photo_alternate,
-                color: Colors.black,
-                size: MediaQuery.of(context).size.width*0.2,
+            GestureDetector(
+              onTap: () {
+                if (kDebugMode) {
+                  print("take a photograph");
+                }
+              },
+              child: CircleAvatar(
+                backgroundColor: Colors.white,
+                radius: MediaQuery.of(context).size.width*0.2,
+                child: Icon(
+                  Icons.add_photo_alternate,
+                  color: Colors.black,
+                  size: MediaQuery.of(context).size.width*0.2,
+                ),
               ),
             ),
             //inputs form fields
