@@ -54,12 +54,13 @@ class _LoginTabPageState extends State<LoginTabPage> {
             ),
           ),
           ElevatedButton(
+            style: ElevatedButton.styleFrom(),
             onPressed: () {
               if (kDebugMode) {
                 print('Login Done');
 
               }},
-            child: Text("Login "),
+            child: const Text("Login "),
           ),
         ],
       ),
