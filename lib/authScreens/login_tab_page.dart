@@ -25,7 +25,10 @@ class _LoginTabPageState extends State<LoginTabPage> {
             padding: const EdgeInsets.all(8.0),
             child: Image.asset(
               "images/login.png",
-              height: MediaQuery.of(context).size.height * 0.3,
+              height: MediaQuery
+                  .of(context)
+                  .size
+                  .height * 0.3,
               opacity: const AlwaysStoppedAnimation(0.8),
             ),
           ),
@@ -54,12 +57,14 @@ class _LoginTabPageState extends State<LoginTabPage> {
             ),
           ),
           ElevatedButton(
-            style: ElevatedButton.styleFrom(),
+            style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.purpleAccent,
+                padding:const EdgeInsets.symmetric(horizontal: 50,vertical: 12)),
             onPressed: () {
               if (kDebugMode) {
                 print('Login Done');
-
-              }},
+              }
+            },
             child: const Text("Login "),
           ),
         ],
