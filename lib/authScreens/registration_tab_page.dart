@@ -89,13 +89,23 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
           ),
           //ElevatedButton
           ElevatedButton(
-            onPressed: () {
-              if (kDebugMode) {
-                print("Registration done");
-              }
-            },
-            child: const Text("Registration "),
-          ),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.pinkAccent,
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
+              ),
+              onPressed: () {
+                if (kDebugMode) {
+                  print("Registration done");
+                }
+              },
+              child: const Text(
+                "Sign Up",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              )),
           const SizedBox(height: 30),
         ],
       ),
