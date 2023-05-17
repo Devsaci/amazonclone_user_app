@@ -15,6 +15,8 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
 
   TextEditingController nameTextEditingController = TextEditingController();
 
+  TextEditingController emailTextEditingController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -49,6 +51,14 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
                   isObsecre: false,
                   iconData: Icons.person,
                   hintText: "Name",
+                  enabled: true,
+                ),
+                //email
+                CustomTextField(
+                  textEditingController: emailTextEditingController,
+                  iconData: Icons.email,
+                  hintText: "Email",
+                  isObsecre: false,
                   enabled: true,
                 ),
               ],
