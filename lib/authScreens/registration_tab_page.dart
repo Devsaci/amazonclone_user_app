@@ -48,6 +48,7 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
                   textEditingController: nameTextEditingController,
                   isObsecre: false,
                   iconData: Icons.person,
+                  hintText: "Name",
                 ),
               ],
             ),
