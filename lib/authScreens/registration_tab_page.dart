@@ -19,6 +19,8 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
 
   TextEditingController passwordTextEditingController = TextEditingController();
 
+  TextEditingController confirmPasswordTextEditingController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -71,6 +73,16 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
                   isObsecre: true,
                   enabled: true,
                 ),
+                //confirm pass
+                CustomTextField(
+                  textEditingController: confirmPasswordTextEditingController,
+                  iconData: Icons.lock,
+                  hintText: "Confirm Password",
+                  isObsecre: true,
+                  enabled: true,
+                ),
+
+                const SizedBox(height: 20),
               ],
             ),
           ),
