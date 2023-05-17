@@ -15,9 +15,11 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
       child: Container(
         child:  Column(
           children: [
-            const SizedBox(height: 12),
+            const SizedBox(height: 15),
             //get-capture image
             CircleAvatar(
+              backgroundColor: Colors.white,
+              radius: MediaQuery.of(context).size.width*0.2,
               child: Icon(
                 Icons.add_photo_alternate,
                 color: Colors.black,
