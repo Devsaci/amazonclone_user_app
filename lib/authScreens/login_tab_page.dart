@@ -23,14 +23,9 @@ class _LoginTabPageState extends State<LoginTabPage> {
         children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Image.asset(
-              "images/login.png",
-              height: MediaQuery
-                  .of(context)
-                  .size
-                  .height * 0.3,
-              opacity: const AlwaysStoppedAnimation(0.8),
-            ),
+            child: Image.asset("images/login.png",
+                height: MediaQuery.of(context).size.height * 0.26,
+                opacity: const AlwaysStoppedAnimation(0.9)),
           ),
           Form(
             key: formKey,
@@ -44,7 +39,7 @@ class _LoginTabPageState extends State<LoginTabPage> {
                   hintText: "Email",
                   enabled: true,
                 ),
-                const SizedBox(height: 10),
+
                 //pass
                 CustomTextField(
                   textEditingController: passwordTextEditingController,
@@ -53,13 +48,15 @@ class _LoginTabPageState extends State<LoginTabPage> {
                   hintText: "Password",
                   enabled: true,
                 ),
+                const SizedBox(height: 10),
               ],
             ),
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.purpleAccent,
-                padding:const EdgeInsets.symmetric(horizontal: 50,vertical: 12)),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 50, vertical: 12)),
             onPressed: () {
               if (kDebugMode) {
                 print('Login Done');
