@@ -13,11 +13,17 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        child: const Column(
+        child:  Column(
           children: [
-            SizedBox(height: 12),
+            const SizedBox(height: 12),
             //get-capture image
-            CircleAvatar(child: Icon(Icons.add_photo_alternate)),
+            CircleAvatar(
+              child: Icon(
+                Icons.add_photo_alternate,
+                color: Colors.black,
+                size: MediaQuery.of(context).size.width*0.2,
+              ),
+            ),
             //inputs form fields
           ],
         ),
