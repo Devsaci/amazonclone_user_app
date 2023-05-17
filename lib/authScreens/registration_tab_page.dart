@@ -44,7 +44,10 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
             child: Column(
               children: [
                 //name
-                CustomTextField(textEditingController: nameTextEditingController),
+                CustomTextField(
+                  textEditingController: nameTextEditingController,
+                  isObsecre: false,
+                ),
               ],
             ),
           ),
