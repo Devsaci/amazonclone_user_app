@@ -10,7 +10,7 @@ class RegistrationTabPage extends StatefulWidget {
 }
 
 class _RegistrationTabPageState extends State<RegistrationTabPage> {
-  get formKey => null;
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
