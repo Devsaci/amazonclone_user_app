@@ -47,6 +47,7 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
                 CustomTextField(
                   textEditingController: nameTextEditingController,
                   isObsecre: false,
+                  iconData: Icons.person,
                 ),
               ],
             ),
