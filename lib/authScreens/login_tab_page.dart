@@ -1,8 +1,12 @@
 import 'package:amazonclone_user_app/widgets/custom_text_field.dart';
+import 'package:flutter/foundation.dart';
 
 import 'package:flutter/material.dart';
 
 class LoginTabPage extends StatefulWidget {
+  const LoginTabPage({super.key});
+
+  @override
   State<LoginTabPage> createState() => _LoginTabPageState();
 }
 
@@ -50,8 +54,12 @@ class _LoginTabPageState extends State<LoginTabPage> {
             ),
           ),
           ElevatedButton(
-            onPressed: () {},
-            child: Text("data"),
+            onPressed: () {
+              if (kDebugMode) {
+                print('Login Done');
+
+              }},
+            child: Text("Login "),
           ),
         ],
       ),
