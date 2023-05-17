@@ -10,11 +10,13 @@ class RegistrationTabPage extends StatefulWidget {
 }
 
 class _RegistrationTabPageState extends State<RegistrationTabPage> {
+  get formKey => null;
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        child:  Column(
+        child: Column(
           children: [
             const SizedBox(height: 15),
             //get-capture image
@@ -26,15 +28,21 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
               },
               child: CircleAvatar(
                 backgroundColor: Colors.white,
-                radius: MediaQuery.of(context).size.width*0.2,
+                radius: MediaQuery.of(context).size.width * 0.2,
                 child: Icon(
                   Icons.add_photo_alternate,
                   color: Colors.black,
-                  size: MediaQuery.of(context).size.width*0.2,
+                  size: MediaQuery.of(context).size.width * 0.2,
                 ),
               ),
             ),
             //inputs form fields
+             Form(
+              key: formKey,
+              child: const Column(
+                children: [],
+              ),
+            ),
           ],
         ),
       ),
