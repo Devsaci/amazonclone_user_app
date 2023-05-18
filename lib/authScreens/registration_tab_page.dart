@@ -28,6 +28,9 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
 
   void getImageFromGallery() async {
     imgXFile = await imagePicker.pickImage(source: ImageSource.gallery);
+    setState(() {
+      imgXFile;
+    });
   }
 
   @override
