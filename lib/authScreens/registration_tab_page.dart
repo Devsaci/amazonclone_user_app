@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../widgets/custom_text_field.dart';
@@ -36,7 +37,9 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
   }
 
   formValidation() async {
-    if(imgXFile == null){}else{}
+    if(imgXFile == null){
+      Fluttertoast.showToast(msg: "Please select an image.");
+    }else{}
   }
 
   @override
