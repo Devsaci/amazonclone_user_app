@@ -56,6 +56,10 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
           //1.upload image to storage
           //2. save the user info to firestore database
         }
+        else
+        {
+          Fluttertoast.showToast(msg: "Please complete the form. Do not leave any text field empty.");
+        }
       }
       else //password is NOT equal to confirm password
       {
