@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -45,8 +47,13 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
               getImageFromGallery();
             },
             child: CircleAvatar(
-              backgroundColor: Colors.white,
               radius: MediaQuery.of(context).size.width * 0.2,
+              backgroundColor: Colors.white,
+              backgroundImage: imgXFile == null
+                  ? null
+                  : FileImage(
+                      File(imgXFile!.path),
+                    ),
               child: Icon(
                 Icons.add_photo_alternate,
                 color: Colors.black,
