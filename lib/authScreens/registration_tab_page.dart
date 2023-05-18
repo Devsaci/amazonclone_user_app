@@ -24,7 +24,7 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
   TextEditingController passwordTextEditingController = TextEditingController();
 
   TextEditingController confirmPasswordTextEditingController =
-      TextEditingController();
+  TextEditingController();
 
   XFile? imgXFile;
   final ImagePicker imagePicker = ImagePicker();
@@ -37,9 +37,15 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
   }
 
   formValidation() async {
-    if(imgXFile == null){
+    if (imgXFile == null) {
       Fluttertoast.showToast(msg: "Please select an image.");
-    }else{}
+    }
+    else //image is already selected
+        {
+      //password is equal to confirm password
+      if (passwordTextEditingController.text ==
+          confirmPasswordTextEditingController.text) {}else {}
+    }
   }
 
   @override
@@ -54,19 +60,25 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
               getImageFromGallery();
             },
             child: CircleAvatar(
-              radius: MediaQuery.of(context).size.width * 0.2,
+              radius: MediaQuery
+                  .of(context)
+                  .size
+                  .width * 0.2,
               backgroundColor: Colors.white,
               backgroundImage: imgXFile == null
                   ? null
                   : FileImage(
-                      File(imgXFile!.path),
-                    ),
+                File(imgXFile!.path),
+              ),
               child: imgXFile == null
                   ? Icon(
-                      Icons.add_photo_alternate,
-                      color: Colors.black,
-                      size: MediaQuery.of(context).size.width * 0.2,
-                    )
+                Icons.add_photo_alternate,
+                color: Colors.black,
+                size: MediaQuery
+                    .of(context)
+                    .size
+                    .width * 0.2,
+              )
                   : null,
             ),
           ),
@@ -117,7 +129,7 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.pinkAccent,
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
+                const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
               ),
               onPressed: () {
                 if (kDebugMode) {
