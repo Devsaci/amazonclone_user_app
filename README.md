@@ -48,4 +48,5 @@ Course content
 # Section 2: User App - Setup New Project with Custum Navigation Drawer & Splash Screen
 # 7. implement flutter tab controller and tab bar view for auth screen
 12min
+# Section 5: User App -  Form Validation
 # 8. design sign up page ui
