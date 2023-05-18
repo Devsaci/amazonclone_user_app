@@ -35,7 +35,9 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
     });
   }
 
-  formValidation() async {}
+  formValidation() async {
+    if(imgXFile == null){}else{}
+  }
 
   @override
   Widget build(BuildContext context) {
