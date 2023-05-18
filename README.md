@@ -52,3 +52,5 @@ Course content
 # 13. select image from gallery
 # 14. display user selected image from gallery on circle avatar
 # 15. Form Validation
+
+# Section 6: User App -  Authenticate User | SingUp & SingIn users
