@@ -54,3 +54,5 @@ Course content
 # 15. Form Validation
 
 # Section 6: User App -  Authenticate User | SingUp & SingIn users
+# 17. Upload image to Firebase storage.
+9min
