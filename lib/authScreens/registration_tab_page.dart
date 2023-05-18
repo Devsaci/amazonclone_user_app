@@ -48,6 +48,13 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
           confirmPasswordTextEditingController.text)
       {
         //check email, pass, confirm password & name text fields
+        if(nameTextEditingController.text.isNotEmpty
+            && emailTextEditingController.text.isNotEmpty
+            && passwordTextEditingController.text.isNotEmpty
+            && confirmPasswordTextEditingController.text.isNotEmpty)
+        {
+          //1.upload image to storage
+        }
       }
       else //password is NOT equal to confirm password
       {
