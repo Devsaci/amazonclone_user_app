@@ -35,6 +35,8 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
     });
   }
 
+  formValidation() async {}
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
