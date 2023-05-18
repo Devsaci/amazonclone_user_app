@@ -54,11 +54,13 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
                   : FileImage(
                       File(imgXFile!.path),
                     ),
-              child: Icon(
-                Icons.add_photo_alternate,
-                color: Colors.black,
-                size: MediaQuery.of(context).size.width * 0.2,
-              ),
+              child: imgXFile == null
+                  ? Icon(
+                      Icons.add_photo_alternate,
+                      color: Colors.black,
+                      size: MediaQuery.of(context).size.width * 0.2,
+                    )
+                  : null,
             ),
           ),
           //inputs form fields
