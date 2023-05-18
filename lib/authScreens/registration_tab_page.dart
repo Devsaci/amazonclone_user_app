@@ -44,7 +44,14 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
         {
       //password is equal to confirm password
       if (passwordTextEditingController.text ==
-          confirmPasswordTextEditingController.text) {}else {}
+          confirmPasswordTextEditingController.text)
+      {
+
+      }
+      else //password is NOT equal to confirm password
+      {
+
+      }
     }
   }
 
