@@ -54,6 +54,7 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
             && confirmPasswordTextEditingController.text.isNotEmpty)
         {
           //1.upload image to storage
+          //2. save the user info to firestore database
         }
       }
       else //password is NOT equal to confirm password
