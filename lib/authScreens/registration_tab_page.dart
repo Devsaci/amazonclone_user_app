@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../widgets/custom_text_field.dart';
 
@@ -21,6 +22,14 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
 
   TextEditingController confirmPasswordTextEditingController =
       TextEditingController();
+
+  XFile? imgXFile;
+  final ImagePicker imagePicker = ImagePicker();
+
+  void getImageFromGallery()
+  {
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -110,5 +119,5 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
     );
   }
 
-  void getImageFromGallery() {}
+
 }
