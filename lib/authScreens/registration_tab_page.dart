@@ -147,9 +147,8 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
                     const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
               ),
               onPressed: () {
-                if (kDebugMode) {
-                  print("Registration done");
-                }
+                //FormFieldValidator;
+                formValidation();
               },
               child: const Text(
                 "Sign Up",
