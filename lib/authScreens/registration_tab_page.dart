@@ -31,9 +31,7 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
           //get-capture image
           GestureDetector(
             onTap: () {
-              if (kDebugMode) {
-                print("take a photograph");
-              }
+              getImageFromGallery();
             },
             child: CircleAvatar(
               backgroundColor: Colors.white,
@@ -111,4 +109,6 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
       ),
     );
   }
+
+  void getImageFromGallery() {}
 }
