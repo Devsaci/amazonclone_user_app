@@ -51,3 +51,4 @@ Course content
 # Section 5: User App -  Form Validation
 # 13. select image from gallery
 # 14. display user selected image from gallery on circle avatar
+# 15. Form Validation
