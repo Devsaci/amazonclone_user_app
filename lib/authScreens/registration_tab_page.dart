@@ -57,9 +57,11 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
               .ref()
               .child("usersImages")
               .child(fileName);
-
+          // 1.3. upload imgXFile to usersImages
           fStorage.UploadTask uploadImageTask =
               storageRef.putFile(File(imgXFile!.path));
+
+          uploadImageTask.whenComplete(() {});
 
           //2. save the user info to firestore database
         } else {
