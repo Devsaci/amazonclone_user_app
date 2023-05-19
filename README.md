@@ -56,3 +56,5 @@ Course content
 # Section 6: User App -  Authenticate User | SingUp & SingIn users
 # 17. Upload image to Firebase storage.
 9min
+# 18. authenticate user and user auth information
+6min
