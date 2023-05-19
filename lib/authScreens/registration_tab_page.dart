@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart' as fStorage;
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -66,7 +67,7 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
           fStorage.TaskSnapshot taskSnapshot =
               await uploadImageTask.whenComplete(() {});
           await taskSnapshot.ref.getDownloadURL().then((urlImage) {
-             downloadUrlImage = urlImage;
+            downloadUrlImage = urlImage;
           });
 
           //2. save the user info to firestore database
@@ -81,6 +82,11 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
             msg: "Password and Confirm Password do not match.");
       }
     }
+  }
+
+  saveInformationToDatabase() async {
+    //authenticate the user first
+    User? currentUser;
   }
 
   @override
