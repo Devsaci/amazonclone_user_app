@@ -87,6 +87,15 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
   saveInformationToDatabase() async {
     //authenticate the user first
     User? currentUser;
+    await FirebaseAuth.instance
+        .createUserWithEmailAndPassword(
+      email: emailTextEditingController.text.trim(),
+      password: passwordTextEditingController.text.trim(),
+    ).then((auth) {
+      return null;
+    }).catchError((errorMessage) {
+      Fluttertoast.showToast(msg: "Error Occurred: \n $errorMessage");
+    });
   }
 
   @override
