@@ -26,6 +26,8 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
   TextEditingController confirmPasswordTextEditingController =
       TextEditingController();
 
+  String downloadUrlImage = "";
+
   XFile? imgXFile;
   final ImagePicker imagePicker = ImagePicker();
 
@@ -63,7 +65,9 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
 
           fStorage.TaskSnapshot taskSnapshot =
               await uploadImageTask.whenComplete(() {});
-          await taskSnapshot.ref.getDownloadURL().then((urlImage) => null);
+          await taskSnapshot.ref.getDownloadURL().then((urlImage) {
+             downloadUrlImage = urlImage;
+          });
 
           //2. save the user info to firestore database
         } else {
