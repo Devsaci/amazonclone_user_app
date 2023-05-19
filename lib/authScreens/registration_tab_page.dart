@@ -50,11 +50,18 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
             passwordTextEditingController.text.isNotEmpty &&
             confirmPasswordTextEditingController.text.isNotEmpty) {
           //1.upload image to storage
+          // 1.1. creat unique name by time (fileName)
           String fileName = DateTime.now().millisecondsSinceEpoch.toString();
-            fStorage.Reference storageRef = fStorage.FirebaseStorage.instance
+          // 1.2. creat folder usersImages
+          fStorage.Reference storageRef = fStorage.FirebaseStorage.instance
               .ref()
               .child("usersImages")
               .child(fileName);
+
+          // fStorage.UploadTask uploadImageTask =
+          //     storageRef.putFile(File(imgXFile!.path));
+          storageRef.putFile(File(imgXFile!.path));
+
           //2. save the user info to firestore database
         } else {
           Fluttertoast.showToast(
