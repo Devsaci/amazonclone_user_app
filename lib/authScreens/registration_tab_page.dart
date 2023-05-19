@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:flutter/foundation.dart';
+import 'package:firebase_storage/firebase_storage.dart' as fStorage;
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
@@ -37,32 +37,31 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
   }
 
   formValidation() async {
-    if (imgXFile == null)
-    {
+    if (imgXFile == null) {
       Fluttertoast.showToast(msg: "Please select an image.");
-    }
-    else //image is already selected
+    } else //image is already selected
     {
       //password is equal to confirm password
       if (passwordTextEditingController.text ==
-          confirmPasswordTextEditingController.text)
-      {
+          confirmPasswordTextEditingController.text) {
         //check email, pass, confirm password & name text fields
-        if(nameTextEditingController.text.isNotEmpty
-            && emailTextEditingController.text.isNotEmpty
-            && passwordTextEditingController.text.isNotEmpty
-            && confirmPasswordTextEditingController.text.isNotEmpty)
-        {
+        if (nameTextEditingController.text.isNotEmpty &&
+            emailTextEditingController.text.isNotEmpty &&
+            passwordTextEditingController.text.isNotEmpty &&
+            confirmPasswordTextEditingController.text.isNotEmpty) {
           //1.upload image to storage
           String fileName = DateTime.now().millisecondsSinceEpoch.toString();
+          fStorage.FirebaseStorage.instance
+              .ref()
+              .child("usersImages")
+              .child(fileName);
           //2. save the user info to firestore database
+        } else {
+          Fluttertoast.showToast(
+              msg:
+                  "Please complete the form. Do not leave any text field empty.");
         }
-        else
-        {
-          Fluttertoast.showToast(msg: "Please complete the form. Do not leave any text field empty.");
-        }
-      }
-      else //password is NOT equal to confirm password
+      } else //password is NOT equal to confirm password
       {
         Fluttertoast.showToast(
             msg: "Password and Confirm Password do not match.");
