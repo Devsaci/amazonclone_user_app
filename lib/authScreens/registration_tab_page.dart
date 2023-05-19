@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart' as fStorage;
 import 'package:flutter/material.dart';
@@ -99,7 +100,26 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
     });
     if (currentUser != null) {
       //save info to database and save locally
+      saveInfoToFirestoreAndLocally(currentUser!);
     }
+  }
+  void saveInfoToFirestoreAndLocally(User currentUser)
+  {
+    //save to firestore
+    FirebaseFirestore.instance
+        .collection("users")
+        .doc(currentUser.uid)
+        .set(
+        {
+          "uid": currentUser.uid,
+          "email": currentUser.email,
+          "name": nameTextEditingController.text.trim(),
+          "photoUrl": downloadUrlImage,
+          "status": "approved",
+          "userCart": ["initialValue"],
+        });
+    //save locally
+
   }
 
   @override
@@ -195,4 +215,6 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
       ),
     );
   }
+
+
 }
