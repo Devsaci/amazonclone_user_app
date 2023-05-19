@@ -91,11 +91,15 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
         .createUserWithEmailAndPassword(
       email: emailTextEditingController.text.trim(),
       password: passwordTextEditingController.text.trim(),
-    ).then((auth) {
+    )
+        .then((auth) {
       return null;
     }).catchError((errorMessage) {
       Fluttertoast.showToast(msg: "Error Occurred: \n $errorMessage");
     });
+    if (currentUser != null) {
+      //save info to database and save locally
+    }
   }
 
   @override
