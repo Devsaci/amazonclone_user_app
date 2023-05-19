@@ -51,7 +51,7 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
             confirmPasswordTextEditingController.text.isNotEmpty) {
           //1.upload image to storage
           String fileName = DateTime.now().millisecondsSinceEpoch.toString();
-          fStorage.FirebaseStorage.instance
+            fStorage.Reference storageRef = fStorage.FirebaseStorage.instance
               .ref()
               .child("usersImages")
               .child(fileName);
