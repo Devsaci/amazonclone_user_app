@@ -58,5 +58,5 @@ Course content
 9min
 # 18. authenticate user and user auth information
 6min
-# 19. allow new user to signup
+# 19. allow new user to signup  void saveInfoToFirestoreAndLocally(User currentUser)
 18min
