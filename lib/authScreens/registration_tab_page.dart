@@ -125,6 +125,7 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
     await sharedPreferences!.setString("email", currentUser.email!);
     await sharedPreferences!
         .setString("name", nameTextEditingController.text.trim());
+    await sharedPreferences!.setString("photoUrl", downloadUrlImage);
   }
 
   @override
