@@ -126,6 +126,7 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
     await sharedPreferences!
         .setString("name", nameTextEditingController.text.trim());
     await sharedPreferences!.setString("photoUrl", downloadUrlImage);
+    await sharedPreferences!.setStringList("userCart", ["initialValue"]);
   }
 
   @override
