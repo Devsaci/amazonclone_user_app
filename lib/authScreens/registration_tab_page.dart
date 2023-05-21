@@ -56,9 +56,9 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
             passwordTextEditingController.text.isNotEmpty &&
             confirmPasswordTextEditingController.text.isNotEmpty) {
           //1.upload image to storage
-          // 1.1. creat unique name by time (fileName)
+          // 1.1. create unique name by time (fileName)
           String fileName = DateTime.now().millisecondsSinceEpoch.toString();
-          // 1.2. creat folder usersImages
+          // 1.2. create folder usersImages
           fStorage.Reference storageRef = fStorage.FirebaseStorage.instance
               .ref()
               .child("usersImages")
@@ -100,13 +100,16 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
     }).catchError((errorMessage) {
       Fluttertoast.showToast(msg: "Error Occurred: \n $errorMessage");
     });
+
     if (currentUser != null) {
+      // The operand can't be null, so the condition is always 'false'.
+      // if (currentUser!.uid.isEmpty)
       //save info to database and save locally
-      saveInfoToFirestoreAndLocally(currentUser!);
+      saveInfoToFirestoreAndLocally(currentUser);
     }
   }
 
-  void saveInfoToFirestoreAndLocally(User currentUser) async{
+  void saveInfoToFirestoreAndLocally(User currentUser) async {
     //save to firestore
     FirebaseFirestore.instance.collection("users").doc(currentUser.uid).set({
       "uid": currentUser.uid,
@@ -118,6 +121,8 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
     });
     //save locally
     sharedPreferences = await SharedPreferences.getInstance();
+    await sharedPreferences!.setString("uid", currentUser.uid);
+    await sharedPreferences!.setString("email", currentUser.email!);
   }
 
   @override
