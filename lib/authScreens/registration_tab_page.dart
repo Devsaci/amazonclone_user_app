@@ -6,7 +6,9 @@ import 'package:firebase_storage/firebase_storage.dart' as fStorage;
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
+import '../global/global.dart';
 import '../widgets/custom_text_field.dart';
 
 class RegistrationTabPage extends StatefulWidget {
@@ -103,23 +105,19 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
       saveInfoToFirestoreAndLocally(currentUser!);
     }
   }
-  void saveInfoToFirestoreAndLocally(User currentUser)
-  {
-    //save to firestore
-    FirebaseFirestore.instance
-        .collection("users")
-        .doc(currentUser.uid)
-        .set(
-        {
-          "uid": currentUser.uid,
-          "email": currentUser.email,
-          "name": nameTextEditingController.text.trim(),
-          "photoUrl": downloadUrlImage,
-          "status": "approved",
-          "userCart": ["initialValue"],
-        });
-    //save locally
 
+  void saveInfoToFirestoreAndLocally(User currentUser) async{
+    //save to firestore
+    FirebaseFirestore.instance.collection("users").doc(currentUser.uid).set({
+      "uid": currentUser.uid,
+      "email": currentUser.email,
+      "name": nameTextEditingController.text.trim(),
+      "photoUrl": downloadUrlImage,
+      "status": "approved",
+      "userCart": ["initialValue"],
+    });
+    //save locally
+    sharedPreferences = await SharedPreferences.getInstance();
   }
 
   @override
@@ -215,6 +213,4 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
       ),
     );
   }
-
-
 }
