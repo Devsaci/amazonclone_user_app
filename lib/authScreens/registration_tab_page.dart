@@ -123,6 +123,8 @@ class _RegistrationTabPageState extends State<RegistrationTabPage> {
     sharedPreferences = await SharedPreferences.getInstance();
     await sharedPreferences!.setString("uid", currentUser.uid);
     await sharedPreferences!.setString("email", currentUser.email!);
+    await sharedPreferences!
+        .setString("name", nameTextEditingController.text.trim());
   }
 
   @override
