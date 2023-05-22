@@ -34,7 +34,7 @@ class _MyDrawerState extends State<MyDrawer> {
                 const SizedBox(height: 12),
                 //user name
                 Text(
-                  "user Name",
+                  sharedPreferences!.getString('name')!,
                   style: TextStyle(
                     color: Colors.grey,
                     fontSize: 20,
