@@ -1,5 +1,6 @@
 import 'package:amazonclone_user_app/widgets/custom_text_field.dart';
 import 'package:amazonclone_user_app/widgets/loading_dialog.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 
 import 'package:flutter/material.dart';
@@ -36,6 +37,20 @@ class _LoginTabPageState extends State<LoginTabPage> {
             message: "Checking credentials",
           );
         });
+
+    User? currentUser;
+
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: emailTextEditingController.text.trim(),
+      password: passwordTextEditingController.text.trim(),
+    ).then((auth)
+    {
+      currentUser = auth.user;
+    }).catchError((errorMessage)
+    {
+      Navigator.pop(context);
+      Fluttertoast.showToast(msg: "Error Occurred: \n $errorMessage");
+    });
   }
 
   @override
