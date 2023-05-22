@@ -27,7 +27,9 @@ class _LoginTabPageState extends State<LoginTabPage> {
     }
   }
 
-  void loginNow() {}
+  void loginNow() async{
+    showDialog(context: context, builder: (c){return widget;});
+  }
 
   @override
   Widget build(BuildContext context) {
