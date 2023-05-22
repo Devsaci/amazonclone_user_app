@@ -73,7 +73,7 @@ class _AuthScreenState extends State<AuthScreen> {
             stops: const [0.0, 1.0],
             tileMode: TileMode.clamp,
           )),
-          child:  TabBarView(
+          child:   TabBarView(
             children: [
               LoginTabPage(),
 

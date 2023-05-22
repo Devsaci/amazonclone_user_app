@@ -9,216 +9,257 @@ import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../global/global.dart';
+import '../splashScreen/my_splash_screen.dart';
 import '../widgets/custom_text_field.dart';
+import '../widgets/loading_dialog.dart';
 
-class RegistrationTabPage extends StatefulWidget {
-  const RegistrationTabPage({Key? key}) : super(key: key);
-
+class RegistrationTabPage extends StatefulWidget
+{
   @override
   State<RegistrationTabPage> createState() => _RegistrationTabPageState();
 }
 
-class _RegistrationTabPageState extends State<RegistrationTabPage> {
-  GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
+
+class _RegistrationTabPageState extends State<RegistrationTabPage>
+{
   TextEditingController nameTextEditingController = TextEditingController();
-
   TextEditingController emailTextEditingController = TextEditingController();
-
   TextEditingController passwordTextEditingController = TextEditingController();
-
-  TextEditingController confirmPasswordTextEditingController =
-      TextEditingController();
-
+  TextEditingController confirmPasswordTextEditingController = TextEditingController();
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
   String downloadUrlImage = "";
 
   XFile? imgXFile;
   final ImagePicker imagePicker = ImagePicker();
 
-  void getImageFromGallery() async {
+
+
+
+  getImageFromGallery() async
+  {
     imgXFile = await imagePicker.pickImage(source: ImageSource.gallery);
+
     setState(() {
       imgXFile;
     });
   }
 
-  formValidation() async {
-    if (imgXFile == null) {
+  formValidation() async
+  {
+    if(imgXFile == null) //image is not selected
+        {
       Fluttertoast.showToast(msg: "Please select an image.");
-    } else //image is already selected
-    {
+    }
+    else //image is already selected
+        {
       //password is equal to confirm password
-      if (passwordTextEditingController.text ==
-          confirmPasswordTextEditingController.text) {
+      if(passwordTextEditingController.text == confirmPasswordTextEditingController.text)
+      {
         //check email, pass, confirm password & name text fields
-        if (nameTextEditingController.text.isNotEmpty &&
-            emailTextEditingController.text.isNotEmpty &&
-            passwordTextEditingController.text.isNotEmpty &&
-            confirmPasswordTextEditingController.text.isNotEmpty) {
+        if(nameTextEditingController.text.isNotEmpty
+            && emailTextEditingController.text.isNotEmpty
+            && passwordTextEditingController.text.isNotEmpty
+            && confirmPasswordTextEditingController.text.isNotEmpty)
+        {
+          showDialog(
+              context: context,
+              builder: (c)
+              {
+                return const LoadingDialogWidget(
+                  message: "Registering your account",
+                );
+              }
+          );
+
           //1.upload image to storage
-          // 1.1. create unique name by time (fileName)
           String fileName = DateTime.now().millisecondsSinceEpoch.toString();
-          // 1.2. create folder usersImages
+
           fStorage.Reference storageRef = fStorage.FirebaseStorage.instance
               .ref()
-              .child("usersImages")
-              .child(fileName);
-          // 1.3. upload imgXFile to usersImages
-          fStorage.UploadTask uploadImageTask =
-              storageRef.putFile(File(imgXFile!.path));
+              .child("usersImages").child(fileName);
 
-          fStorage.TaskSnapshot taskSnapshot =
-              await uploadImageTask.whenComplete(() {});
-          await taskSnapshot.ref.getDownloadURL().then((urlImage) {
+          fStorage.UploadTask uploadImageTask = storageRef.putFile(File(imgXFile!.path));
+
+          fStorage.TaskSnapshot taskSnapshot = await uploadImageTask.whenComplete(() {});
+
+          await taskSnapshot.ref.getDownloadURL().then((urlImage)
+          {
             downloadUrlImage = urlImage;
           });
 
           //2. save the user info to firestore database
-        } else {
-          Fluttertoast.showToast(
-              msg:
-                  "Please complete the form. Do not leave any text field empty.");
+          saveInformationToDatabase();
         }
-      } else //password is NOT equal to confirm password
-      {
-        Fluttertoast.showToast(
-            msg: "Password and Confirm Password do not match.");
+        else
+        {
+          Navigator.pop(context);
+          Fluttertoast.showToast(msg: "Please complete the form. Do not leave any text field empty.");
+        }
+      }
+      else //password is NOT equal to confirm password
+          {
+        Fluttertoast.showToast(msg: "Password and Confirm Password do not match.");
       }
     }
   }
 
-  saveInformationToDatabase() async {
+  saveInformationToDatabase() async
+  {
     //authenticate the user first
     User? currentUser;
-    await FirebaseAuth.instance
-        .createUserWithEmailAndPassword(
+
+    await FirebaseAuth.instance.createUserWithEmailAndPassword(
       email: emailTextEditingController.text.trim(),
       password: passwordTextEditingController.text.trim(),
-    )
-        .then((auth) {
-      return null;
-    }).catchError((errorMessage) {
+    ).then((auth)
+    {
+      currentUser = auth.user;
+    }).catchError((errorMessage)
+    {
+      Navigator.pop(context);
       Fluttertoast.showToast(msg: "Error Occurred: \n $errorMessage");
     });
 
-    if (currentUser != null) {
-      // The operand can't be null, so the condition is always 'false'.
-      // if (currentUser!.uid.isEmpty)
+    if(currentUser != null)
+    {
       //save info to database and save locally
-      saveInfoToFirestoreAndLocally(currentUser);
+      saveInfoToFirestoreAndLocally(currentUser!);
     }
   }
 
-  void saveInfoToFirestoreAndLocally(User currentUser) async {
+  saveInfoToFirestoreAndLocally(User currentUser) async
+  {
     //save to firestore
-    FirebaseFirestore.instance.collection("users").doc(currentUser.uid).set({
-      "uid": currentUser.uid,
-      "email": currentUser.email,
-      "name": nameTextEditingController.text.trim(),
-      "photoUrl": downloadUrlImage,
-      "status": "approved",
-      "userCart": ["initialValue"],
-    });
+    FirebaseFirestore.instance
+        .collection("users")
+        .doc(currentUser.uid)
+        .set(
+        {
+          "uid": currentUser.uid,
+          "email": currentUser.email,
+          "name": nameTextEditingController.text.trim(),
+          "photoUrl": downloadUrlImage,
+          "status": "approved",
+          "userCart": ["initialValue"],
+        });
+
     //save locally
     sharedPreferences = await SharedPreferences.getInstance();
     await sharedPreferences!.setString("uid", currentUser.uid);
     await sharedPreferences!.setString("email", currentUser.email!);
-    await sharedPreferences!
-        .setString("name", nameTextEditingController.text.trim());
+    await sharedPreferences!.setString("name", nameTextEditingController.text.trim());
     await sharedPreferences!.setString("photoUrl", downloadUrlImage);
     await sharedPreferences!.setStringList("userCart", ["initialValue"]);
+
+    Navigator.push(context, MaterialPageRoute(builder: (c)=> const MySplashScreen()));
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context)
+  {
     return SingleChildScrollView(
-      child: Column(
-        children: [
-          const SizedBox(height: 15),
-          //get-capture image
-          GestureDetector(
-            onTap: () {
-              getImageFromGallery();
-            },
-            child: CircleAvatar(
-              radius: MediaQuery.of(context).size.width * 0.2,
-              backgroundColor: Colors.white,
-              backgroundImage: imgXFile == null
-                  ? null
-                  : FileImage(
-                      File(imgXFile!.path),
-                    ),
-              child: imgXFile == null
-                  ? Icon(
-                      Icons.add_photo_alternate,
-                      color: Colors.black,
-                      size: MediaQuery.of(context).size.width * 0.2,
-                    )
-                  : null,
-            ),
-          ),
-          //inputs form fields
-          Form(
-            key: formKey,
-            child: Column(
-              children: [
-                //name
-                CustomTextField(
-                  textEditingController: nameTextEditingController,
-                  isObsecre: false,
-                  iconData: Icons.person,
-                  hintText: "Name",
-                  enabled: true,
-                ),
-                //email
-                CustomTextField(
-                  textEditingController: emailTextEditingController,
-                  iconData: Icons.email,
-                  hintText: "Email",
-                  isObsecre: false,
-                  enabled: true,
-                ),
-                //pass
-                CustomTextField(
-                  textEditingController: passwordTextEditingController,
-                  iconData: Icons.lock,
-                  hintText: "Password",
-                  isObsecre: true,
-                  enabled: true,
-                ),
-                //confirm pass
-                CustomTextField(
-                  textEditingController: confirmPasswordTextEditingController,
-                  iconData: Icons.lock,
-                  hintText: "Confirm Password",
-                  isObsecre: true,
-                  enabled: true,
-                ),
+      child: Container(
+        child: Column(
+          children: [
 
-                const SizedBox(height: 20),
-              ],
-            ),
-          ),
-          //ElevatedButton
-          ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.pinkAccent,
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
-              ),
-              onPressed: () {
-                //FormFieldValidator;
-                formValidation();
+            const SizedBox(height: 12,),
+
+            //get-capture image
+            GestureDetector(
+              onTap: ()
+              {
+                getImageFromGallery();
               },
-              child: const Text(
-                "Sign Up",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
+              child: CircleAvatar(
+                radius: MediaQuery.of(context).size.width * 0.20,
+                backgroundColor: Colors.white,
+                backgroundImage: imgXFile == null
+                    ? null
+                    : FileImage(
+                    File(imgXFile!.path)
                 ),
-              )),
-          const SizedBox(height: 30),
-        ],
+                child: imgXFile == null
+                    ? Icon(
+                  Icons.add_photo_alternate,
+                  color: Colors.grey,
+                  size: MediaQuery.of(context).size.width * 0.20,
+                ) : null,
+              ),
+            ),
+
+            const SizedBox(height: 12,),
+
+            //inputs form fields
+            Form(
+              key: formKey,
+              child: Column(
+                children: [
+
+                  //name
+                  CustomTextField(
+                    textEditingController: nameTextEditingController,
+                    iconData: Icons.person,
+                    hintText: "Name",
+                    isObsecre: false,
+                    enabled: true,
+                  ),
+
+                  //email
+                  CustomTextField(
+                    textEditingController: emailTextEditingController,
+                    iconData: Icons.email,
+                    hintText: "Email",
+                    isObsecre: false,
+                    enabled: true,
+                  ),
+
+                  //pass
+                  CustomTextField(
+                    textEditingController: passwordTextEditingController,
+                    iconData: Icons.lock,
+                    hintText: "Password",
+                    isObsecre: true,
+                    enabled: true,
+                  ),
+
+                  //confirm pass
+                  CustomTextField(
+                    textEditingController: confirmPasswordTextEditingController,
+                    iconData: Icons.lock,
+                    hintText: "Confirm Password",
+                    isObsecre: true,
+                    enabled: true,
+                  ),
+
+                  const SizedBox(height: 20,),
+
+                ],
+              ),
+            ),
+
+            ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.pinkAccent,
+                  padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
+                ),
+                onPressed: ()
+                {
+                  formValidation();
+                },
+                child: const Text(
+                  "Sign Up",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                )
+            ),
+
+            const SizedBox(height: 30,),
+
+          ],
+        ),
       ),
     );
   }
