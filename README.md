@@ -60,3 +60,6 @@ Course content
 6min
 # 19. allow new user to signup  void saveInfoToFirestoreAndLocally(User currentUser)
 18min
+
+# 20 20. loading dialog progress bar widget
+# 21. allow approved users to login
