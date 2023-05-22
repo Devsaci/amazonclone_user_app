@@ -66,7 +66,15 @@ class _LoginTabPageState extends State<LoginTabPage> {
         .then((record) async{
       if(record.exists) //record exists
       {
+        //status is approved
+        if(record.data()!["status"] == "approved")
+        {
 
+        }
+        else
+        {
+
+        }
       }
       else //record not exists
       {
