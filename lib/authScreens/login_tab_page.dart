@@ -72,6 +72,7 @@ class _LoginTabPageState extends State<LoginTabPage> {
         if(record.data()!["status"] == "approved")
         {
           await sharedPreferences!.setString("uid", record.data()!["uid"]);
+          await sharedPreferences!.setString("email", record.data()!["email"]);
         }
         else
         {
