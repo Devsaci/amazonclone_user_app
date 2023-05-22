@@ -21,10 +21,13 @@ class _LoginTabPageState extends State<LoginTabPage> {
     if (emailTextEditingController.text.isNotEmpty &&
         passwordTextEditingController.text.isNotEmpty) {
       //allow user to login
+      loginNow();
     } else {
       Fluttertoast.showToast(msg: "Please provide email and password.");
     }
   }
+
+  void loginNow() {}
 
   @override
   Widget build(BuildContext context) {
@@ -76,4 +79,6 @@ class _LoginTabPageState extends State<LoginTabPage> {
       ),
     );
   }
+
+
 }
