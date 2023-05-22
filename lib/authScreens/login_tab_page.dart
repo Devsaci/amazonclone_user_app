@@ -2,6 +2,7 @@ import 'package:amazonclone_user_app/widgets/custom_text_field.dart';
 import 'package:flutter/foundation.dart';
 
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class LoginTabPage extends StatefulWidget {
   const LoginTabPage({super.key});
@@ -16,10 +17,14 @@ class _LoginTabPageState extends State<LoginTabPage> {
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-
-  void validateForm() {}
-
-
+  void validateForm() {
+    if (emailTextEditingController.text.isNotEmpty &&
+        passwordTextEditingController.text.isNotEmpty) {
+      //allow user to login
+    } else {
+      Fluttertoast.showToast(msg: "msg");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -71,6 +76,4 @@ class _LoginTabPageState extends State<LoginTabPage> {
       ),
     );
   }
-
-
 }
