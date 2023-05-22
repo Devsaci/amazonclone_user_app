@@ -62,7 +62,7 @@ class _LoginTabPageState extends State<LoginTabPage> {
     await FirebaseFirestore.instance
         .collection("users")
         .doc(currentUser.uid)
-         .get()
+        .get()
         .then((record) async{
       if(record.exists) //record exists
       {
@@ -70,7 +70,7 @@ class _LoginTabPageState extends State<LoginTabPage> {
       }
       else //record not exists
       {
-
+        Fluttertoast.showToast(msg: "This user's record do not exists.");
       }
         });
   }
