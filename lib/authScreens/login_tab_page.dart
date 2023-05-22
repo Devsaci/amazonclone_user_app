@@ -7,6 +7,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
+import '../global/global.dart';
+
 class LoginTabPage extends StatefulWidget {
   const LoginTabPage({super.key});
 
@@ -69,7 +71,7 @@ class _LoginTabPageState extends State<LoginTabPage> {
         //status is approved
         if(record.data()!["status"] == "approved")
         {
-
+          await sharedPreferences!.setString("uid", record.data()!["uid"]);
         }
         else
         {
