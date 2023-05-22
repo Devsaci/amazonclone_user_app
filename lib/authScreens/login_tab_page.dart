@@ -41,26 +41,38 @@ class _LoginTabPageState extends State<LoginTabPage> {
 
     User? currentUser;
 
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
+    await FirebaseAuth.instance
+        .signInWithEmailAndPassword(
       email: emailTextEditingController.text.trim(),
       password: passwordTextEditingController.text.trim(),
-    ).then((auth)
-    {
+    )
+        .then((auth) {
       currentUser = auth.user;
-    }).catchError((errorMessage)
-    {
+    }).catchError((errorMessage) {
       Navigator.pop(context);
       Fluttertoast.showToast(msg: "Error Occurred: \n $errorMessage");
     });
 
-    if(currentUser != null)
-    {
+    if (currentUser != null) {
       checkIfUserRecordExists(currentUser!);
     }
-
   }
-  void checkIfUserRecordExists(User currentUser) async{
-    await FirebaseFirestore.instance.collection("users").doc(currentUser.uid).get().then((value) => null);
+
+  void checkIfUserRecordExists(User currentUser) async {
+    await FirebaseFirestore.instance
+        .collection("users")
+        .doc(currentUser.uid)
+         .get()
+        .then((record) async{
+      if(record.exists) //record exists
+      {
+
+      }
+      else //record not exists
+      {
+
+      }
+        });
   }
 
   @override
@@ -113,6 +125,4 @@ class _LoginTabPageState extends State<LoginTabPage> {
       ),
     );
   }
-
-
 }
