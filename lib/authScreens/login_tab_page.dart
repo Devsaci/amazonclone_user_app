@@ -1,4 +1,5 @@
 import 'package:amazonclone_user_app/widgets/custom_text_field.dart';
+import 'package:amazonclone_user_app/widgets/loading_dialog.dart';
 import 'package:flutter/foundation.dart';
 
 import 'package:flutter/material.dart';
@@ -27,8 +28,14 @@ class _LoginTabPageState extends State<LoginTabPage> {
     }
   }
 
-  void loginNow() async{
-    showDialog(context: context, builder: (c){return widget;});
+  void loginNow() async {
+    showDialog(
+        context: context,
+        builder: (c) {
+          return const LoadingDialogWidget(
+            message: "Checking credentials",
+          );
+        });
   }
 
   @override
@@ -81,6 +88,4 @@ class _LoginTabPageState extends State<LoginTabPage> {
       ),
     );
   }
-
-
 }
