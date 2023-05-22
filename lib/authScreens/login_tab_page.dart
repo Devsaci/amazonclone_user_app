@@ -1,5 +1,6 @@
 import 'package:amazonclone_user_app/widgets/custom_text_field.dart';
 import 'package:amazonclone_user_app/widgets/loading_dialog.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 
@@ -58,7 +59,9 @@ class _LoginTabPageState extends State<LoginTabPage> {
     }
 
   }
-  void checkIfUserRecordExists(User user) {}
+  void checkIfUserRecordExists(User currentUser) async{
+    await FirebaseFirestore.instance.collection("collectionPath");
+  }
 
   @override
   Widget build(BuildContext context) {
