@@ -51,7 +51,14 @@ class _LoginTabPageState extends State<LoginTabPage> {
       Navigator.pop(context);
       Fluttertoast.showToast(msg: "Error Occurred: \n $errorMessage");
     });
+
+    if(currentUser != null)
+    {
+      checkIfUserRecordExists(currentUser!);
+    }
+
   }
+  void checkIfUserRecordExists(User user) {}
 
   @override
   Widget build(BuildContext context) {
@@ -103,4 +110,6 @@ class _LoginTabPageState extends State<LoginTabPage> {
       ),
     );
   }
+
+
 }
