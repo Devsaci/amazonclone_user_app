@@ -1,3 +1,4 @@
+import 'package:amazonclone_user_app/global/global.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -16,8 +17,8 @@ class _MyDrawerState extends State<MyDrawer> {
       child: ListView(
         children: [
           //header
-          const Padding(
-            padding: EdgeInsets.only(top: 26, bottom: 12),
+           Padding(
+            padding: const EdgeInsets.only(top: 26, bottom: 12),
             child: Column(
               children: [
                 //user profile image
@@ -26,10 +27,11 @@ class _MyDrawerState extends State<MyDrawer> {
                   width: 130,
                   child: CircleAvatar(
                     backgroundImage: NetworkImage(
-                        "https://images.unsplash.com/photo-1446707052533-0e1d48e08aa9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dHJlc3N8ZW58MHx8MHx8&w=1000&q=80"),
+                      sharedPreferences!.getString('photoUrl')!
+                        ),
                   ),
                 ),
-                SizedBox(height: 12),
+                const SizedBox(height: 12),
                 //user name
                 Text(
                   "user Name",
