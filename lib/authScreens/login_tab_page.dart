@@ -22,7 +22,7 @@ class _LoginTabPageState extends State<LoginTabPage> {
         passwordTextEditingController.text.isNotEmpty) {
       //allow user to login
     } else {
-      Fluttertoast.showToast(msg: "msg");
+      Fluttertoast.showToast(msg: "Please provide email and password.");
     }
   }
 
