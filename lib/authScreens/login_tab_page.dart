@@ -75,6 +75,7 @@ class _LoginTabPageState extends State<LoginTabPage> {
           await sharedPreferences!.setString("email", record.data()!["email"]);
           await sharedPreferences!.setString("name", record.data()!["name"]);
           await sharedPreferences!.setString("photoUrl", record.data()!["photoUrl"]);
+          //send user to home screen
         }
         else
         {
