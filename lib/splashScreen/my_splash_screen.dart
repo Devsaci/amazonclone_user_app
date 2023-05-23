@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:amazonclone_user_app/mainScreens/home_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class MySplashScreen extends StatefulWidget {
@@ -15,6 +16,8 @@ class _MySplashScreenState extends State<MySplashScreen> {
   splashScreenTimer() {
     Timer(const Duration(seconds: 3), () {
       //user is already logged-in
+      if(FirebaseAuth.instance.currentUser != null){}
+
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => const HomeScreen()));
     });
