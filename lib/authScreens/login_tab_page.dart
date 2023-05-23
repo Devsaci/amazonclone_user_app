@@ -88,6 +88,7 @@ class _LoginTabPageState extends State<LoginTabPage> {
       }
       else //record not exists
       {
+        FirebaseAuth.instance.signOut();
         Fluttertoast.showToast(msg: "This user's record do not exists.");
       }
         });
