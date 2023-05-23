@@ -1,4 +1,5 @@
 import 'package:amazonclone_user_app/global/global.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -35,7 +36,7 @@ class _MyDrawerState extends State<MyDrawer> {
                 //user name
                 Text(
                   sharedPreferences!.getString('name')!,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.grey,
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -142,7 +143,9 @@ class _MyDrawerState extends State<MyDrawer> {
                     "Sign Out",
                     style: TextStyle(color: Colors.black87),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    FirebaseAuth.instance.signOut();
+                  },
                 ),
                 const Divider(
                   height: 20,
