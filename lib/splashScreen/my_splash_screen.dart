@@ -14,12 +14,9 @@ class _MySplashScreenState extends State<MySplashScreen> {
   // Timer
   splashScreenTimer() {
     Timer(const Duration(seconds: 3), () {
+      //user is already logged-in
       Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => const HomeScreen(),
-        ),
-      );
+          context, MaterialPageRoute(builder: (context) => const HomeScreen()));
     });
   }
 
