@@ -84,6 +84,7 @@ class _LoginTabPageState extends State<LoginTabPage> {
         else //status is not approved
         {
           FirebaseAuth.instance.signOut();
+          Navigator.pop(context);
           Fluttertoast.showToast(msg: "you have BLOCKED by admin.\ncontact Admin: admin@ishop.com");
         }
       }
