@@ -83,7 +83,7 @@ class _LoginTabPageState extends State<LoginTabPage> {
         }
         else //status is not approved
         {
-
+          FirebaseAuth.instance.signOut();
         }
       }
       else //record not exists
