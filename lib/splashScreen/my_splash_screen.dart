@@ -4,6 +4,8 @@ import 'package:amazonclone_user_app/mainScreens/home_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import '../authScreens/auth_screen.dart';
+
 class MySplashScreen extends StatefulWidget {
   const MySplashScreen({Key? key}) : super(key: key);
 
@@ -22,7 +24,7 @@ class _MySplashScreenState extends State<MySplashScreen> {
       }
       else //user is NOT already logged-in
       {
-
+        Navigator.push(context, MaterialPageRoute(builder: (c)=> const AuthScreen()));
       }
 
     });
