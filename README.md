@@ -63,3 +63,4 @@ Course content
 
 # 20 20. loading dialog progress bar widget
 # 21. allow approved users to login
+# 22. sign out user
