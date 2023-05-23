@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 import '../global/global.dart';
+import '../splashScreen/my_splash_screen.dart';
 
 class LoginTabPage extends StatefulWidget {
   const LoginTabPage({super.key});
@@ -78,6 +79,7 @@ class _LoginTabPageState extends State<LoginTabPage> {
           List<String> userCartList = record.data()!["userCart"].cast<String>();
           await sharedPreferences!.setStringList("userCart", userCartList);
           //send user to home screen
+          Navigator.push(context, MaterialPageRoute(builder: (c)=> MySplashScreen()));
         }
         else
         {
