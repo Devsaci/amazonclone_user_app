@@ -81,7 +81,7 @@ class _LoginTabPageState extends State<LoginTabPage> {
           //send user to home screen
           Navigator.push(context, MaterialPageRoute(builder: (c)=> MySplashScreen()));
         }
-        else
+        else //status is not approved
         {
 
         }
