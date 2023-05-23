@@ -20,7 +20,7 @@ class _MySplashScreenState extends State<MySplashScreen> {
       {
         Navigator.push(context, MaterialPageRoute(builder: (c) => const HomeScreen()));
       }
-      else
+      else //user is NOT already logged-in
       {
 
       }
