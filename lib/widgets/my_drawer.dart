@@ -1,5 +1,6 @@
 import 'package:amazonclone_user_app/authScreens/auth_screen.dart';
 import 'package:amazonclone_user_app/global/global.dart';
+import 'package:amazonclone_user_app/splashScreen/my_splash_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -146,7 +147,7 @@ class _MyDrawerState extends State<MyDrawer> {
                   ),
                   onTap: () {
                     FirebaseAuth.instance.signOut();
-                    Navigator.push(context, MaterialPageRoute(builder: (c)=> const AuthScreen()));
+                    Navigator.push(context, MaterialPageRoute(builder: (c)=> const MySplashScreen()));
                   },
                 ),
                 const Divider(
